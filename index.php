@@ -5,13 +5,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama = $_POST['nama'];
     $laporan = $_POST['laporan'];
 
-    echo "<div style='color: green;'>
+    $query = "INSERT INTO pengaduan (nama, laporan) VALUES ('$nama', '$laporan')";
+    $run = mysqli_query($koneksi, $query);
+
+    if ($run) {
+        echo "<div style='color: green;'>
             <b>Sukses!</b> 
-            Laporan dari 
-            <b>$nama</b> 
-            telah diterima: 
-            <i>$laporan</i><hr>
+            Laporan berhasil disimpan ke database
+            <hr>
         </div>";
+    } else {
+        echo "Error: " . mysqli_error($koneksi);
+    }
 }
 ?>
 
