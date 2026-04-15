@@ -74,7 +74,10 @@ $ambil_data = mysqli_query($koneksi, "SELECT * FROM pengaduan ORDER BY id DESC")
             <td><?= $no++ ?></td>
             <td><?= $row['nama'] ?></td>
             <td><?= $row['laporan'] ?></td>
-            <td><a href="hapus.php?id=<?= $row['id'] ?>" onclick="return confirm('Yakin ingin menghapus laporan ini?')">Hapus</a></td>
+            <td>
+                <a href="hapus.php?id=<?= $row['id'] ?>" onclick="return confirm('Yakin ingin menghapus laporan ini?')">Hapus</a>
+                <a href="edit.php?id=<?= $row['id'] ?>">Edit</a>
+            </td>
         </tr>
         <?php } ?>
     </table>
