@@ -9,7 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $laporan = $_POST['laporan'];
 
     $update = "UPDATE pengaduan SET nama='$nama', laporan='$laporan' WHERE id='$id'";
-    if (mysqli_query($koneksi, $update)) {
+    $run = mysqli_query($koneksi, $update);
+
+    if ($run) {
         header("location:index.php");
     }
 }
